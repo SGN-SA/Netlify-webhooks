@@ -1,0 +1,7 @@
+get {{hostname}}
+
+###
+post {{hostname}}/webhook/kofi
+Content-Type: application/x-www-form-urlencoded
+
+data=%7b%22verification_token%22%3a%22b1b27168-ad73-461e-aa49-bad3248bfbfd%22%2c%22message_id%22%3a%22519e63b4-b7c3-48a7-b9c7-ad31bb1316f4%22%2c%22timestamp%22%3a%222023-07-27T08%3a32%3a28Z%22%2c%22type%22%3a%22Subscription%22%2c%22is_public%22%3atrue%2c%22from_name%22%3a%22Jo+Example%22%2c%22message%22%3a%22Good+luck+with+the+integration!%22%2c%22amount%22%3a%223.00%22%2c%22url%22%3a%22https%3a%2f%2fko-fi.com%2fHome%2fCoffeeShop%3ftxid%3d00000000-1111-2222-3333-444444444444%22%2c%22email%22%3a%22jo.example%40example.com%22%2c%22currency%22%3a%22USD%22%2c%22is_subscription_payment%22%3afalse%2c%22is_first_subscription_payment%22%3afalse%2c%22kofi_transaction_id%22%3a%2200000000-1111-2222-3333-444444444444%22%2c%22shop_items%22%3anull%2c%22tier_name%22%3a%22Cool%22%2c%22shipping%22%3anull%7d

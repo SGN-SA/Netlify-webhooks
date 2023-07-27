@@ -1,0 +1,11 @@
+{
+    "rest-client.environmentVariables": {
+        "$shared": {},
+        "Local": {
+            "hostname": "http://localhost:8888"
+        },
+        "Dev": {
+            "hostname": "https://saudign.netlify.app"
+        }
+    }
+}
