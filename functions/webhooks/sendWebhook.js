@@ -1,13 +1,12 @@
 const axios = require("axios");
 require("dotenv").config();
 
-const webhookURL = `https://discord.com/api/webhooks/1102426732822270073/${process.env.DISCORD_TOKEN}`;
-
 /**
  * @param {import("discord-api-types/v10").APIEmbed} embed
+ * @param {URL} webhookURL
  * @return {Promise<void>}
  */
-async function sendWebhook(embed) {
+async function sendWebhook(embed, webhookURL) {
     embed.color = 0x6945ff;
 
     /** @type { import("discord-api-types/v10").RESTPostAPIWebhookWithTokenJSONBody} */
