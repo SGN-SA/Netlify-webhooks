@@ -25,6 +25,9 @@
         "@types/node": "^20.4.5",
         "discord-api-types": "^0.37.50",
         "eslint": "^8.45.0",
+        "eslint-plugin-import": "^2.29.0",
+        "eslint-plugin-jsdoc": "^46.8.2",
+        "eslint-plugin-promise": "^6.1.1",
         "netlify-cli": "^15.9.1",
         "patreon-api-types": "^0.0.2",
         "prettier": "^3.0.0"
