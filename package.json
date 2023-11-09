@@ -16,9 +16,9 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "axios": "^1.4.0",
         "dotenv": "^16.0.3",
-        "patreon-webhook-signature": "^1.2.4"
+        "patreon-webhook-signature": "^1.2.4",
+        "webhook-discord": "^3.7.8"
     },
     "devDependencies": {
         "@netlify/functions": "^1.6.0",

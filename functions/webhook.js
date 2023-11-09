@@ -1,6 +1,6 @@
 const kofi = require("./webhooks/kofi");
 
-/** @type { import("@netlify/functions").Handler } */
+/** @type {import("@netlify/functions").Handler} */
 async function webhook(event) {
     if (event.httpMethod !== "POST") {
         return {
@@ -14,7 +14,11 @@ async function webhook(event) {
 
     switch (lastPart) {
         case "kofi":
-            return await kofi(event);
+            const res = await kofi(event);
+            if (res && res.statusCode >= 400) {
+                console.error(res);
+            }
+            return res;
 
         default:
             return {
