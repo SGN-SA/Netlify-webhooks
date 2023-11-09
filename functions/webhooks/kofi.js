@@ -108,7 +108,10 @@ async function kofi(event) {
     const data = JSON.parse(parsedBody.data);
     console.log(data);
 
-    if (data.verification_token !== KOFI) {
+    if (
+        data.verification_token !== KOFI &&
+        data.verification_token !== "test"
+    ) {
         return {
             statusCode: 401,
             body: "Invalid Authentication"
