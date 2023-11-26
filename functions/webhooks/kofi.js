@@ -14,11 +14,14 @@ const {
  * @returns {import("webhook-discord").MessageBuilder}
  */
 function getMessageBuilder(data) {
+    var date = new Date(data.timestamp);
+    var unixTimestamp = Math.floor(date.getTime() / 1000);
+
     return new webhook.MessageBuilder()
         .setAuthor("Ko-fi", "https://storage.ko-fi.com/cdn/nav-logo-stroke.png")
         .setTitle(data.from_name)
         .setURL(data.url)
-        .setTime(parseInt(data.timestamp));
+        .setTime(unixTimestamp);
 }
 
 /**
