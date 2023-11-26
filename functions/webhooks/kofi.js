@@ -105,8 +105,19 @@ async function kofi(event) {
     }
 
     /** @type { import("../../types/ko-fi/index").Data } */
-    const data = JSON.parse(parsedBody.data);
-    console.log(data);
+    let data;
+    try {
+        data = JSON.parse(parsedBody.data);
+        console.log("📢 -----------------------📢");
+        console.log("📢 - kofi - data:", data);
+        console.log("📢 -----------------------📢");
+    } catch (err) {
+        console.log("📢 ---------------------------------------------📢");
+        console.log("📢 - kofi - parsedBody.data:", parsedBody.data);
+        console.log("📢 ---------------------------------------------📢");
+        console.error(err);
+        return;
+    }
 
     if (
         data.verification_token !== KOFI &&
