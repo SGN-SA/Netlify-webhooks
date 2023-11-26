@@ -1,4 +1,7 @@
 {
+    "caseSensitive": true,
+    "useGitignore": true,
     "language": "en-GB,ar",
-    "words": ["netlify", "pws"]
+    "files": ["./functions/**/*", "./types/**/*", "README.md"],
+    "words": ["BRL", "netlify", "NZD", "pws", "SGD", "THB"]
 }

@@ -1,15 +1,17 @@
-# Ignore folders
+### IGNORE ###
+
+# Project folders
 .git/
 .netlify/
 node_modules/
-types/
 
-# Don't ignore folders
-!.vscode/
-!.github/
-
-# Ignore markdown files:
+# Markdown files
 *.md
 
-# Ignore special files
+# Special files
 LICENSE
+
+### DON'T IGNORE ###
+
+# Project settings folders
+!.vscode/
