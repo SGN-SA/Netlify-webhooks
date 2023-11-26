@@ -1,12 +1,12 @@
-const webhook = require("webhook-discord");
+import { Webhook } from "webhook-discord";
 
 /**
  * @param {import("webhook-discord").MessageBuilder} messageBuilder
  * @param {string} webhookUrl
  * @return {Promise<void>}
  */
-async function sendWebhook(messageBuilder, webhookUrl) {
-    const Hook = new webhook.Webhook(webhookUrl);
+export async function sendWebhook(messageBuilder, webhookUrl) {
+    const Hook = new Webhook(webhookUrl);
 
     messageBuilder
         .setName("SaudiGN")
@@ -21,5 +21,3 @@ async function sendWebhook(messageBuilder, webhookUrl) {
         console.error("Error sending message to Discord:", err.message);
     }
 }
-
-module.exports = sendWebhook;

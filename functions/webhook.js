@@ -1,7 +1,7 @@
-const kofi = require("./webhooks/kofi");
+import kofi from "./webhooks/kofi";
 
 /** @type {import("@netlify/functions").Handler} */
-async function webhook(event) {
+export async function handler(event) {
     if (event.httpMethod !== "POST") {
         return {
             statusCode: 400,
@@ -26,5 +26,3 @@ async function webhook(event) {
             };
     }
 }
-
-exports.handler = webhook;

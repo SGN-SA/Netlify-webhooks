@@ -2,7 +2,7 @@
  * Convert the currency from a `code` to a `character`
  * @enum {string}
  */
-const CurrencyCharacter = Object.freeze({
+export const CurrencyCharacter = Object.freeze({
     USD: "$",
     EUR: "€",
     GBP: "£",
@@ -14,7 +14,3 @@ const CurrencyCharacter = Object.freeze({
     THB: "฿",
     NZD: "NZ$"
 });
-
-module.exports = {
-    CurrencyCharacter
-};

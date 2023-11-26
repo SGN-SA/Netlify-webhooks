@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "description": "",
     "main": "functions/webhook.js",
-    "type": "commonjs",
+    "type": "module",
     "scripts": {
         "deploy": "netlify deploy --prod",
         "local": "netlify dev",

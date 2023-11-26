@@ -1,8 +1,10 @@
-const sendWebhook = require("./sendWebhook");
-const querystring = require("querystring");
-const webhook = require("webhook-discord");
-require("dotenv").config();
+import { config } from "dotenv";
+import { parse } from "querystring";
+import { MessageBuilder } from "webhook-discord";
+import { CurrencyCharacter } from "../../helpers/currency.js";
+import { sendWebhook } from "./sendWebhook";
 
+config();
 const {
     KOFI,
     PUBLIC_DISCORD_KOFI_WEBHOOK_URL,
@@ -17,7 +19,7 @@ function getMessageBuilder(data) {
     var date = new Date(data.timestamp);
     var unixTimestamp = Math.floor(date.getTime() / 1000);
 
-    return new webhook.MessageBuilder()
+    return new MessageBuilder()
         .setAuthor("Ko-fi", "https://storage.ko-fi.com/cdn/nav-logo-stroke.png")
         .setTitle(data.from_name)
         .setURL(data.url.replace("&readToken=", ""))
@@ -70,11 +72,10 @@ async function sendPublicWebhook(data) {
         return;
     }
 
-    const messageBuilder = getMessageBuilder(data);
-
-    const { CurrencyCharacter } = require("../../helpers/currency.js");
-    const paid = `${CurrencyCharacter[data.currency]} ${data.amount}`;
-    messageBuilder.addField("المبلغ", paid);
+    const messageBuilder = getMessageBuilder(data).addField(
+        "المبلغ",
+        `${CurrencyCharacter[data.currency]} ${data.amount}`
+    );
 
     if (data.is_subscription_payment && data.tier_name) {
         messageBuilder.addField("الرتبة", data.tier_name);
@@ -88,7 +89,7 @@ async function sendPublicWebhook(data) {
 }
 
 /** @type { import("@netlify/functions").Handler } */
-async function kofi(event) {
+export async function kofi(event) {
     if (!event.body) {
         return {
             statusCode: 400,
@@ -96,7 +97,7 @@ async function kofi(event) {
         };
     }
 
-    const parsedBody = querystring.parse(event.body);
+    const parsedBody = parse(event.body);
     if (!parsedBody.data) {
         return {
             statusCode: 401,
@@ -147,5 +148,3 @@ async function kofi(event) {
         statusCode: 200
     };
 }
-
-module.exports = kofi;
