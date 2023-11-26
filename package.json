@@ -14,7 +14,7 @@
         "email": "contact@nabilalsaiad.com",
         "url": "https://links.nabilalsaiad.com"
     },
-    "license": "Apache-2.0",
+    "license": "MIT",
     "dependencies": {
         "dotenv": "^16.0.3",
         "patreon-webhook-signature": "^1.2.4",
