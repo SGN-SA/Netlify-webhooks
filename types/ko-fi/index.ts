@@ -1,18 +1,18 @@
 import { CurrencyCode } from "../other";
 
-export interface ShotItem {
+export declare interface ShotItem {
     direct_link_code: string;
     variation_name: string;
     quantity: number;
 }
 
-export type PaymentType =
+export declare type PaymentType =
     | "Donation"
     | "Subscription"
     | "Commission"
     | "Shop Order";
 
-export interface PaymentShipping {
+export declare interface PaymentShipping {
     full_name: string;
     street_address: string;
     city: string;
@@ -23,7 +23,7 @@ export interface PaymentShipping {
     telephone: string;
 }
 
-export interface Data {
+export declare interface Data {
     type: PaymentType;
     verification_token: string;
     message_id: string | null;
@@ -49,4 +49,4 @@ export interface Data {
     shipping: PaymentShipping | null;
 }
 
-export type WebhookBody = `data=${string}`;
+export declare type WebhookBody = `data=${string}`;

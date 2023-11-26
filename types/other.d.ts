@@ -1,4 +1,4 @@
-// export enum Currency {
+// export declare enum Currency {
 //     US = "USD",
 //     EURO = "EUR",
 //     British = "GBP",
@@ -11,7 +11,7 @@
 //     NewZealand = "NZD"
 // }
 
-export type CurrencyCode =
+export declare type CurrencyCode =
     | "USD"
     | "EUR"
     | "GBP"
@@ -23,9 +23,9 @@ export type CurrencyCode =
     | "THB"
     | "NZD";
 
-export type Country = "United States" | "Japan";
+export declare type Country = "United States" | "Japan";
 
-export type CountryCode = "US" | "MY" | "SA";
+export declare type CountryCode = "US" | "MY" | "SA";
 
-export type CountryPhoneCode = "01" | "60" | "966";
-export type PhoneNumber = `+${CountryPhoneCode}${string}`;
+export declare type CountryPhoneCode = "01" | "60" | "966";
+export declare type PhoneNumber = `+${CountryPhoneCode}${string}`;
