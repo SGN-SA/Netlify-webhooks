@@ -72,7 +72,8 @@ async function sendPublicWebhook(data) {
 
     const messageBuilder = getMessageBuilder(data);
 
-    const paid = `${data.currency} ${data.amount}`;
+    const { CurrencyCharacter } = require("../../helpers/currency.js");
+    const paid = `${CurrencyCharacter[data.currency]} ${data.amount}`;
     messageBuilder.addField("المبلغ", paid);
 
     if (data.is_subscription_payment && data.tier_name) {

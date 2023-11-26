@@ -2,6 +2,11 @@
     "caseSensitive": true,
     "useGitignore": true,
     "language": "en-GB,ar",
-    "files": ["./functions/**/*", "./types/**/*", "README.md"],
+    "files": [
+        "./functions/**/*",
+        "./helpers/**/*",
+        "./types/**/*",
+        "README.md"
+    ],
     "words": ["BRL", "netlify", "NZD", "pws", "SGD", "THB"]
 }
