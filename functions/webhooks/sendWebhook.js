@@ -1,9 +1,10 @@
 import { Webhook } from "webhook-discord";
 
 /**
- * @param {import("webhook-discord").MessageBuilder} messageBuilder
- * @param {string} webhookUrl
- * @return {Promise<void>}
+ * Send the final message to Discord using a webhook
+ * @param {import("webhook-discord").MessageBuilder} messageBuilder The message builder containing the payment details
+ * @param {string} webhookUrl The Discord webhook url to send the 'messageBuilder' to
+ * @returns {Promise<void>}
  */
 export async function sendWebhook(messageBuilder, webhookUrl) {
     const Hook = new Webhook(webhookUrl);

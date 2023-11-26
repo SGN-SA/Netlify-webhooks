@@ -11,6 +11,9 @@
 //     NewZealand = "NZD"
 // }
 
+/**
+ * The only currencies supported by Ko-fi
+ */
 export declare type CurrencyCode =
     | "USD"
     | "EUR"

@@ -12,8 +12,9 @@ const {
 } = process.env;
 
 /**
- * @param {import("../../types/ko-fi/index.ts").Data} data
- * @returns {import("webhook-discord").MessageBuilder}
+ * Get a MessageBuilder containing shared information
+ * @param {import("../../types/ko-fi/index.ts").Data} data The data to read from
+ * @returns {import("webhook-discord").MessageBuilder} A MessageBuilder with the shared information
  */
 function getMessageBuilder(data) {
     var date = new Date(data.timestamp);
@@ -27,7 +28,8 @@ function getMessageBuilder(data) {
 }
 
 /**
- * @param {import("../../types/ko-fi/index.ts").Data} data
+ * Send the Ko-fi notification to the private Discord server
+ * @param {import("../../types/ko-fi/index.ts").Data} data The data containing the payment information
  * @returns {Promise<void>}
  */
 async function sendPrivateWebhook(data) {
@@ -63,7 +65,8 @@ async function sendPrivateWebhook(data) {
 }
 
 /**
- * @param {import("../../types/ko-fi/index.ts").Data} data
+ * Send the Ko-fi notification to the public Discord server
+ * @param {import("../../types/ko-fi/index.ts").Data} data The data containing the payment information
  * @returns {Promise<void>}
  */
 async function sendPublicWebhook(data) {
@@ -88,7 +91,10 @@ async function sendPublicWebhook(data) {
     await sendWebhook(messageBuilder, PUBLIC_DISCORD_KOFI_WEBHOOK_URL);
 }
 
-/** @type { import("@netlify/functions").Handler } */
+/**
+ * Read the Ko-fi webhook event and send the notification to Discord
+ * @type {import("@netlify/functions").Handler}
+ */
 export async function kofi(event) {
     if (!event.body) {
         return {
