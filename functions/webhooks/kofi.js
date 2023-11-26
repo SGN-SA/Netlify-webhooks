@@ -70,7 +70,10 @@ async function sendPublicWebhook(data) {
         return;
     }
 
-    const messageBuilder = getMessageBuilder(data).addField("المبلغ", "");
+    const messageBuilder = getMessageBuilder(data);
+
+    const paid = `${data.currency} ${data.amount}`;
+    messageBuilder.addField("المبلغ", paid);
 
     if (data.is_subscription_payment && data.tier_name) {
         messageBuilder.addField("الرتبة", data.tier_name);
