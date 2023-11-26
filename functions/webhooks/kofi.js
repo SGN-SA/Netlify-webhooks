@@ -20,7 +20,7 @@ function getMessageBuilder(data) {
     return new webhook.MessageBuilder()
         .setAuthor("Ko-fi", "https://storage.ko-fi.com/cdn/nav-logo-stroke.png")
         .setTitle(data.from_name)
-        .setURL(data.url)
+        .setURL(data.url.replace("&readToken=", ""))
         .setTime(unixTimestamp);
 }
 
@@ -52,7 +52,7 @@ async function sendPrivateWebhook(data) {
     for (let i = 0; i < wantedFields.length; i++) {
         const fieldName = wantedFields[i];
         const element = data[fieldName];
-        if (element) {
+        if (element !== undefined && element !== null) {
             messageBuilder.addField(fieldName, element);
         }
     }
@@ -80,7 +80,7 @@ async function sendPublicWebhook(data) {
     }
 
     if (data.message && data.is_public) {
-        messageBuilder.addField("رسالة", data.message);
+        messageBuilder.addField("الرسالة", data.message);
     }
 
     await sendWebhook(messageBuilder, PUBLIC_DISCORD_KOFI_WEBHOOK_URL);

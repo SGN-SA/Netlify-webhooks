@@ -28,5 +28,4 @@ export type Country = "United States" | "Japan";
 export type CountryCode = "US" | "MY" | "SA";
 
 export type CountryPhoneCode = "01" | "60" | "966";
-
 export type PhoneNumber = `+${CountryPhoneCode}${string}`;
