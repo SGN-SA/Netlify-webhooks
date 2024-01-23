@@ -1,24 +1,24 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSaveMode": "file",
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.formatOnSave": true,
-    "editor.trimAutoWhitespace": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.organizeImports": true
-    },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.trimAutoWhitespace": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
 
-    "files.insertFinalNewline": true,
-    "files.eol": "auto",
+  "javascript.suggest.jsdoc.generateReturns": true,
+  "javascript.suggest.completeJSDocs": true,
+  "javascript.suggest.autoImports": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
 
-    "js/ts.implicitProjectConfig.checkJs": true,
-
-    "rest-client.environmentVariables": {
-        "$shared": {},
-        "Local": {
-            "hostname": "http://localhost:8888"
-        }
+  "rest-client.environmentVariables": {
+    "$shared": {},
+    "Local": {
+      "hostname": "http://localhost:8888"
     }
+  }
 }

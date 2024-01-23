@@ -1,44 +1,44 @@
 {
-    "name": "netlify-webhooks",
-    "version": "0.0.0",
-    "description": "",
-    "main": "functions/webhook.js",
-    "type": "module",
-    "scripts": {
-        "deploy": "netlify deploy --prod",
-        "local": "netlify dev",
-        "lint": "eslint . --fix",
-        "format": "prettier . --write"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/SaudiGN/Netlify-webhooks.git"
-    },
-    "keywords": [
-        "Netlify",
-        "Webhook",
-        "Discord"
-    ],
-    "author": {
-        "name": "Nabil Alsaiad",
-        "email": "nabil@saudigamenews.com"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "dotenv": "^16.0.3",
-        "patreon-webhook-signature": "^1.2.4",
-        "webhook-discord": "^3.7.8"
-    },
-    "devDependencies": {
-        "@netlify/functions": "^1.6.0",
-        "@types/node": "^20.4.5",
-        "discord-api-types": "^0.37.50",
-        "eslint": "^8.45.0",
-        "eslint-plugin-import": "^2.29.0",
-        "eslint-plugin-jsdoc": "^46.8.2",
-        "eslint-plugin-promise": "^6.1.1",
-        "netlify-cli": "^15.9.1",
-        "patreon-api-types": "^0.0.2",
-        "prettier": "^3.0.0"
-    }
+  "name": "netlify-webhooks",
+  "version": "0.0.0",
+  "description": "",
+  "main": "functions/webhook.js",
+  "type": "module",
+  "scripts": {
+    "deploy": "netlify deploy --prod",
+    "local": "netlify dev",
+    "lint": "eslint . --fix --ignorepath .gitignore",
+    "format": "prettier . --write --ignorepath .gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SaudiGN/Netlify-webhooks.git"
+  },
+  "keywords": [
+    "Netlify",
+    "Webhook",
+    "Discord"
+  ],
+  "author": {
+    "name": "Nabil Alsaiad",
+    "email": "nabil@saudigamenews.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "patreon-webhook-signature": "^1.2.4",
+    "webhook-discord": "^3.7.8"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^1.6.0",
+    "@types/node": "*",
+    "discord-api-types": "*",
+    "eslint": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsdoc": "*",
+    "eslint-plugin-promise": "*",
+    "netlify-cli": "*",
+    "patreon-api-types": "*",
+    "prettier": "*"
+  }
 }
