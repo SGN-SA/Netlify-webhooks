@@ -26,9 +26,9 @@ export declare type CurrencyCode =
     | "THB"
     | "NZD";
 
-export declare type Country = "United States" | "Japan";
+export declare type Country = "United States" | "Malaysia" | "Saudi Arabia";
 
 export declare type CountryCode = "US" | "MY" | "SA";
 
-export declare type CountryPhoneCode = "01" | "60" | "966";
+export declare type CountryPhoneCode = "1" | "60" | "966";
 export declare type PhoneNumber = `+${CountryPhoneCode}${string}`;
