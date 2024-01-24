@@ -1,12 +1,7 @@
 {
-    "caseSensitive": true,
-    "useGitignore": true,
-    "language": "en-GB,ar",
-    "files": [
-        "./functions/**/*",
-        "./helpers/**/*",
-        "./types/**/*",
-        "README.md"
-    ],
-    "words": ["BRL", "netlify", "NZD", "pws", "SGD", "THB"]
+  "caseSensitive": true,
+  "useGitignore": true,
+  "language": "en-GB,ar",
+  "files": ["./functions/**/*", "./helpers/**/*", "./types/**/*", "README.md"],
+  "words": ["BRL", "netlify", "NZD", "pws", "SGD", "SGN", "THB"]
 }

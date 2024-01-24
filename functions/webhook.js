@@ -1,4 +1,5 @@
-import kofi from './webhooks/kofi.js'
+import 'dotenv/config'
+import { kofi } from './webhooks/kofi.js'
 
 /** @type {import("@netlify/functions").Handler} */
 export async function handler(event) {
@@ -18,13 +19,10 @@ export async function handler(event) {
       // eslint-disable-next-line no-case-declarations
       const res = await kofi(event)
       if (res && res.statusCode >= 400) {
-        console.error(res)
+        console.error('📢 - handler - res:', res)
       }
       return res
-
-    default:
-      return {
-        statusCode: 204
-      }
   }
+
+  return { statusCode: 204 }
 }

@@ -18,7 +18,8 @@
   "rest-client.environmentVariables": {
     "$shared": {},
     "Local": {
-      "hostname": "http://localhost:8888"
+      // "hostname": "http://localhost:8888"
+      "hostname": "http://localhost:62406"
     }
   }
 }

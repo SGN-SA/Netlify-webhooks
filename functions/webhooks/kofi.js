@@ -1,10 +1,8 @@
-import { config } from 'dotenv'
 import { parse } from 'querystring'
 import { MessageBuilder } from 'webhook-discord'
 import { CurrencyCharacter } from '../../helpers/currency.js'
-import { sendWebhook } from './sendWebhook'
+import { sendWebhook } from './sendWebhook.js'
 
-config()
 const {
   KOFI,
   PUBLIC_DISCORD_KOFI_WEBHOOK_URL,
@@ -34,13 +32,14 @@ function getMessageBuilder(data) {
  */
 async function sendPrivateWebhook(data) {
   if (!PRIVATE_DISCORD_KOFI_WEBHOOK_URL) {
-    console.error('Public webhook URL not defined')
+    console.error(
+      '📢 - sendPrivateWebhook - "PRIVATE_DISCORD_KOFI_WEBHOOK_URL" not defined'
+    )
     return
   }
 
   const messageBuilder = getMessageBuilder(data)
-
-  const wantedFields = [
+  const requiredFields = [
     'type',
     'amount',
     'currency',
@@ -53,8 +52,8 @@ async function sendPrivateWebhook(data) {
     'kofi_transaction_id'
   ]
 
-  for (let i = 0; i < wantedFields.length; i++) {
-    const fieldName = wantedFields[i]
+  for (let i = 0; i < requiredFields.length; i++) {
+    const fieldName = requiredFields[i]
     const element = data[fieldName]
     if (element !== undefined && element !== null) {
       messageBuilder.addField(fieldName, element)
@@ -71,7 +70,9 @@ async function sendPrivateWebhook(data) {
  */
 async function sendPublicWebhook(data) {
   if (!PUBLIC_DISCORD_KOFI_WEBHOOK_URL) {
-    console.error('Public webhook URL not defined')
+    console.error(
+      '📢 - sendPublicWebhook - "PUBLIC_DISCORD_KOFI_WEBHOOK_URL" not defined'
+    )
     return
   }
 
@@ -95,7 +96,7 @@ async function sendPublicWebhook(data) {
  * Read the Ko-fi webhook event and send the notification to Discord
  * @type {import("@netlify/functions").Handler}
  */
-export default async function kofi(event) {
+export async function kofi(event) {
   if (!event.body) {
     return {
       statusCode: 400,
@@ -122,14 +123,8 @@ export default async function kofi(event) {
   let data
   try {
     data = JSON.parse(parsedBody.data)
-    console.log('📢 -----------------------📢')
-    console.log('📢 - kofi - data:', data)
-    console.log('📢 -----------------------📢')
   } catch (err) {
-    console.log('📢 ---------------------------------------------📢')
-    console.log('📢 - kofi - parsedBody.data:', parsedBody.data)
-    console.log('📢 ---------------------------------------------📢')
-    console.error(err)
+    console.error('📢 - kofi - err:', err)
     return
   }
 
@@ -144,7 +139,7 @@ export default async function kofi(event) {
     await sendPrivateWebhook(data)
     await sendPublicWebhook(data)
   } catch (err) {
-    console.error(err)
+    console.error('📢 - kofi - err:', err)
   }
 
   return {
